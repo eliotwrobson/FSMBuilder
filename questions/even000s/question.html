@@ -1,0 +1,78 @@
+<pl-question-panel>
+    <p>
+        Create a DFA in the area below for the following language:
+        <center>All binary strings in which the substring $000$ appears an even number of times.</center>
+    </p>
+    <hr>
+</pl-question-panel>
+
+<fsm-builder answers-name="q" fsm-type="dfa">
+    <correct-answer>
+        {
+            "states": [
+              "(00, 1)",
+              "(e, 1)",
+              "(000, 1)",
+              "(0, 0)",
+              "(00, 0)",
+              "(e, 0)",
+              "(000, 0)",
+              "(0, 1)"
+            ],
+            "input_symbols": ["1", "0"],
+            "transitions": {
+              "(00, 1)": {
+                "0": "(000, 0)",
+                "1": "(e, 1)"
+              },
+              "(e, 1)": {
+                "0": "(0, 1)",
+                "1": "(e, 1)"
+              },
+              "(000, 1)": {
+                "0": "(000, 0)",
+                "1": "(e, 1)"
+              },
+              "(0, 0)": {
+                "0": "(00, 0)",
+                "1": "(e, 0)"
+              },
+              "(00, 0)": {
+                "0": "(000, 1)",
+                "1": "(e, 0)"
+              },
+              "(e, 0)": {
+                "0": "(0, 0)",
+                "1": "(e, 0)"
+              },
+              "(000, 0)": {
+                "0": "(000, 1)",
+                "1": "(e, 0)"
+              },
+              "(0, 1)": {
+                "0": "(00, 1)",
+                "1": "(e, 1)"
+              }
+            },
+            "initial_state": "(e, 0)",
+            "final_states": ["(e, 0)", "(000, 0)", "(0, 0)", "(00, 0)"]
+          }
+    </correct-answer>
+</fsm-builder>
+
+<pl-hidden-hints>
+    <pl-hint show-after-submission=1>
+        For what values of $n$ does the substring $000$ appear in $0^n$ an odd
+        number of times?
+    </pl-hint>
+    <pl-hint show-after-submission=3>
+        Consider the maximal blocks of 0s that appear in a string. For example, in
+        $10001101110000100000$, the maximal blocks of 0s are
+        $$1(000)11(0)111(0000)1(00000).$$
+        Then, consider the number of occurrences of $000$ contributed by each block.
+    </pl-hint>
+    <pl-hint show-after-submission=5>
+        Some of these blocks contribute an odd number of occurrences of $000$. We
+        want those types of blocks to appear an even number of times.
+    </pl-hint>
+</pl-hidden-hints>

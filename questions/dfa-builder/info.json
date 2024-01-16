@@ -1,0 +1,12 @@
+{
+    "uuid": "425a09da-ef9f-42ea-96ed-ef7da02edf25",
+    "title": "Testing DFA Builder",
+    "topic": "dfa",
+    "tags": [
+        "erobson2",
+        "Utilities"
+    ],
+    "type": "v3",
+    "showCorrectAnswer": false,
+    "singleVariant": true
+}
